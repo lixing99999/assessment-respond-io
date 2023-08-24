@@ -2,6 +2,8 @@ import { RequestHandler } from "express";
 import { Repository, getConnection } from "typeorm";
 import { User } from "../entities/user";
 import bcrypt from "bcrypt";
+import * as jwt from 'jsonwebtoken'
+import { v4 } from 'uuid'
 
 export const getUsers: RequestHandler = (request, response) => {
   try {
@@ -38,30 +40,31 @@ export const createUser: RequestHandler = async (request, response) => {
 export const login: RequestHandler = async (request, response) => {
   try {
     const { username, password } = request.body;
+    console.log(username)
     // Find the user by username
     const connection = await getConnection();
     const user: any = await connection.manager.findOne(User, {
       where: {
-        username: request?.body?.username,
+        username: username,
       },
     });
 
     if (!user) {
       return response.status(401).json({ message: "Authentication failed" });
     }
-
+    
     // Compare the provided password with the stored hash
-    bcrypt.compare(password, user.password, (err, result) => {
-      if (err) {
-        return response.status(500).json({ message: "Internal server error" });
-      }
+    const result = bcrypt.compare(password, user.password)
 
-      if (result) {
-        return response.json({ message: "Authentication successful" });
-      } else {
-        return response.status(401).json({ message: "Authentication failed" });
-      }
-    });
+    const jwt_token = jwt.sign({
+      id : user.id,
+      username : user.username,
+      email : user.email,
+      fullname : `${user.first_name} ${user.lastname}`
+    }, "yeAlI1njRFoawFkx4KtdjaOkXKna6N1p6Mbx8I3W5QsyhawczaojxZmrlBnjW3tG")
+
+
+    return response.status(200).send(jwt_token)
   } catch (err) {
     return response.status(500).send(err);
   }

@@ -3,7 +3,8 @@ import express from "express";
 import router from "./routes";
 import { createConnection } from "typeorm";
 import bodyParser from "body-parser";
-
+import { auth } from "./middlewares/auth";
+require('dotenv').config();
 const app = express();
 
 createConnection({
@@ -25,8 +26,11 @@ createConnection({
   .catch((error) => {
     console.error("Database connection error:", error);
   });
+
+
 app.use(bodyParser.json());
 app.use("/api", router);
+app.use(auth)
 
 const port = process.env.PORT || 5001;
 
