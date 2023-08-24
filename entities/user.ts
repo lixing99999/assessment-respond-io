@@ -1,10 +1,9 @@
 // src/entities/User.ts
 
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity()
 export class User {
-
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -15,6 +14,17 @@ export class User {
   lastName: string;
 
   @Column()
-  age: number;
+  date_of_birth: string;
 
+  @Column()
+  gender: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  username: string;
+
+  @Column()
+  password: string;
 }

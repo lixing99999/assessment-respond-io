@@ -1,1 +1,25 @@
-GET http://127.0.0.1:5001/api/users
+POST http://127.0.0.1:5001/api/user HTTP/1.1
+content-type: application/json
+
+{
+    "username" : "user-001",
+    "first_name" : "qwe",
+    "last_name" : "qwe",
+    "email" : "qwe",
+    "password" : "123123123",
+    "gender" : "qwe",
+    "date_of_birth" : "qwe"
+}
+
+POST http://127.0.0.1:5001/api/login HTTP/1.1
+content-type: application/json
+
+{
+    "username" : "user-001",
+    "first_name" : "qwe",
+    "last_name" : "qwe",
+    "email" : "qwe",
+    "password" : "123123123",
+    "gender" : "qwe",
+    "date_of_birth" : "qwe"
+}

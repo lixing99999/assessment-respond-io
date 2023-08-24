@@ -1,9 +1,68 @@
 import { RequestHandler } from "express";
+import { Repository, getConnection } from "typeorm";
+import { User } from "../entities/user";
+import bcrypt from "bcrypt";
 
-export const getUsers:RequestHandler = (request, response) => {
-    try{
-        return response.status(200).send("hello")
-    }catch(err){
-        return response.status(500).send(err)
+export const getUsers: RequestHandler = (request, response) => {
+  try {
+    return response.status(200).send("hello");
+  } catch (err) {
+    return response.status(500).send(err);
+  }
+};
+
+export const createUser: RequestHandler = async (request, response) => {
+  try {
+    const connection = getConnection();
+    const body = request?.body;
+    const salt = await bcrypt.genSalt(10);
+    const password = await bcrypt.hash(body.password, salt);
+
+    const payload = {
+      ...request?.body,
+      password: password,
+    };
+
+    const user = new User();
+    Object.assign(user, {
+      ...payload,
+    });
+
+    const result = await connection.manager.save(user);
+    return response.status(200).send(result);
+  } catch (err) {
+    return response.status(500).send(err);
+  }
+};
+
+export const login: RequestHandler = async (request, response) => {
+  try {
+    const { username, password } = request.body;
+    // Find the user by username
+    const connection = await getConnection();
+    const user: any = await connection.manager.findOne(User, {
+      where: {
+        username: request?.body?.username,
+      },
+    });
+
+    if (!user) {
+      return response.status(401).json({ message: "Authentication failed" });
     }
-}
+
+    // Compare the provided password with the stored hash
+    bcrypt.compare(password, user.password, (err, result) => {
+      if (err) {
+        return response.status(500).json({ message: "Internal server error" });
+      }
+
+      if (result) {
+        return response.json({ message: "Authentication successful" });
+      } else {
+        return response.status(401).json({ message: "Authentication failed" });
+      }
+    });
+  } catch (err) {
+    return response.status(500).send(err);
+  }
+};
