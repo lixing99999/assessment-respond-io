@@ -7,8 +7,8 @@ export class UserNote {
     id: number;
 
     @Column()
-    username: string;
+    user_id: string;
 
     @Column()
-    email: string;
+    note: string;
 }
