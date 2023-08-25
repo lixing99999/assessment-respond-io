@@ -1,5 +1,6 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgcXdlIiwiaWF0IjoxNjkyOTY0NDIzfQ.ZWf1uc9zp5rOyEfexI8RlLhbbeaM8o5FZ7j6GDLeCyA
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgcXdlIiwiaWF0IjoxNjkyOTY3MjM0fQ.K56BJ-TdX0EQGPEfsLhj1AyFXqG9Ndge-iq28_x2xfI
 
+### create note
 POST http://127.0.0.1:5001/api/note HTTP/1.1
 content-type: application/json
 Authorization: {{token}}
@@ -9,16 +10,16 @@ Authorization: {{token}}
     "note" : "dummy data will delete soon 001"
 }
 
-###
+### get note by user token
 GET http://127.0.0.1:5001/api/note HTTP/1.1
 Authorization: {{token}}
 
-###
-GET http://127.0.0.1:5001/api/note/3 HTTP/1.1
+### get note by note id and user token
+GET http://127.0.0.1:5001/api/note/17 HTTP/1.1
 Authorization: {{token}}
 
-###
-PUT http://127.0.0.1:5001/api/note/3 HTTP/1.1
+### update note by user token
+PUT http://127.0.0.1:5001/api/note/17 HTTP/1.1
 content-type: application/json
 Authorization: {{token}}
 
@@ -26,7 +27,7 @@ Authorization: {{token}}
     "note" : "update note"
 }
 
-###
-DELETE  http://127.0.0.1:5001/api/note/3 HTTP/1.1
+### delete note by user token
+DELETE  http://127.0.0.1:5001/api/note/17 HTTP/1.1
 content-type: application/json
 Authorization: {{token}}

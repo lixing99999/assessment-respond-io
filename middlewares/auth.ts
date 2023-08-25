@@ -5,7 +5,6 @@ import _ from 'lodash'
 export const auth:RequestHandler = (request:any, response:any, next:any) => {
 
   const excludePath = ["/api/login", '/api/user']
-  console.log(request.method, request.path)
   if(request.method == "POST" && _.includes(excludePath, request.path)) return next()
 
   const token = request.header('Authorization');
@@ -18,8 +17,6 @@ export const auth:RequestHandler = (request:any, response:any, next:any) => {
     if (err) {
       return response.status(403).json({ message: 'Failed to authenticate token' });
     }
-
-    console.log(decoded)
 
     request.user = decoded
     next(); 

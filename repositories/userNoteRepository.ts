@@ -19,7 +19,7 @@ export class UserNoteRepository {
         const userNote = new UserNote();
          Object.assign(userNote, body);
 
-        const result = await connection.manager.save(userNote);
+        return await connection.manager.save(userNote);
     }
 
     async updateUserNote(body:UserNote, id:string, userId:string){

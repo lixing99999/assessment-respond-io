@@ -1,5 +1,6 @@
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgcXdlIiwiaWF0IjoxNjkyOTY0NDUyfQ.L-dvrlGiNkfg3ltIulHQ-3C2tbWBTpIv0uwPqn5yr9M
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgcXdlIiwiaWF0IjoxNjkyOTY3MjM0fQ.K56BJ-TdX0EQGPEfsLhj1AyFXqG9Ndge-iq28_x2xfI
 
+### create user
 POST http://127.0.0.1:5001/api/user HTTP/1.1
 content-type: application/json
 
@@ -13,8 +14,7 @@ content-type: application/json
     "date_of_birth" : "2023-08-11"
 }
 
-###
-
+### user login
 POST http://127.0.0.1:5001/api/login HTTP/1.1
 content-type: application/json
 
@@ -24,8 +24,6 @@ content-type: application/json
 }
 
 
-
-###
-
+### get user
 GET http://127.0.0.1:5001/api/user
 Authorization: {{token}}
