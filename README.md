@@ -8,7 +8,19 @@ This project showcases the use of Express, TypeScript, MySQL, and Redis in build
 
 ## Features
 
-(./images/features.png)
+The requirements from 1 - 5, and 7 - 8 from the document that provided by respond.io are all completed, 
+except 6 I'm not able to complete due to my limited knowledge to docker.
+
+Singleton - config/logger.ts
+Factory - services/noteService.ts
+JWT - middlewares/auth.ts
+Redis - middlewares/cache.ts
+
+suggested way for code review index > routes > controller > services > repository
+
+below link is the document of some example of my coding guidelilnes
+
+https://docs.google.com/document/d/1ivJpjCjiwEDtQZS2fsdKnpnFiwRBNdzT22Njgcp3OnA/edit?usp=sharing
 
 ## Getting Started
 
