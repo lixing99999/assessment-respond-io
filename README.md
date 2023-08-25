@@ -8,7 +8,7 @@ This project showcases the use of Express, TypeScript, MySQL, and Redis in build
 
 ## Features
 
-![Alt text] (features.png)
+![ScreenShot] (/features.png)
 
 ## Getting Started
 
