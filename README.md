@@ -8,7 +8,7 @@ This project showcases the use of Express, TypeScript, MySQL, and Redis in build
 
 ## Features
 
-![Alt text] features.png
+![Alt text] (features.png)
 
 ## Getting Started
 
@@ -28,7 +28,7 @@ Before you begin, ensure you have the following installed:
 3. Install dependencies: `npm install`
 
 ### Running the Application
-x
+
 1. Make sure your MySQL and Redis servers are up and running.
 2. Create the necessary databases as mentioned in the project configuration.
 3. Configure the database connection and Redis settings in the appropriate configuration files.
