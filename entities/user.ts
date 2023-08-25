@@ -1,6 +1,7 @@
 // src/entities/User.ts
 
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { UserNote } from "./user-note";
 
 @Entity()
 export class User {
@@ -14,7 +15,7 @@ export class User {
   last_name: string;
 
   @Column()
-  date_of_birth: string;
+  date_of_birth: Date;
 
   @Column()
   gender: string;
@@ -27,4 +28,8 @@ export class User {
 
   @Column()
   password: string;
+
+
+  @OneToMany(() => UserNote, (userNote) => userNote.user)
+  notes: UserNote[]
 }

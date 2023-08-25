@@ -19,6 +19,8 @@ export const auth:RequestHandler = (request:any, response:any, next:any) => {
       return response.status(403).json({ message: 'Failed to authenticate token' });
     }
 
+    console.log(decoded)
+
     request.user = decoded
     next(); 
   });

@@ -29,8 +29,9 @@ createConnection({
 
 
 app.use(bodyParser.json());
-app.use("/api", router);
 app.use(auth)
+app.use("/api", router);
+
 
 const port = process.env.PORT || 5001;
 

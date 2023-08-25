@@ -1,0 +1,31 @@
+###
+POST http://127.0.0.1:5001/api/note HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MzE0fQ.YuMqsWCdd9wW2orQsOzH_fm8LwYH893lJypbEm_c6Is
+
+{
+    "type" : "personal",
+    "note" : "dummy data will delete soon 001"
+}
+
+###
+GET http://127.0.0.1:5001/api/note HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+
+###
+GET http://127.0.0.1:5001/api/note/3 HTTP/1.1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+
+###
+PUT http://127.0.0.1:5001/api/note/3 HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+
+{
+    "note" : "update note"
+}
+
+###
+DELETE  http://127.0.0.1:5001/api/note/3 HTTP/1.1
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw

@@ -1,5 +1,6 @@
 // src/entities/User.ts
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { User } from "./user";
 
 @Entity()
 export class UserNote {
@@ -7,8 +8,11 @@ export class UserNote {
     id: number;
 
     @Column()
-    user_id: string;
+    user_id: number;
 
     @Column()
     note: string;
+
+    @ManyToOne(() => User, (user) => user.notes)
+    user: User
 }
