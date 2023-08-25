@@ -1,7 +1,8 @@
-###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgcXdlIiwiaWF0IjoxNjkyOTY0NDIzfQ.ZWf1uc9zp5rOyEfexI8RlLhbbeaM8o5FZ7j6GDLeCyA
+
 POST http://127.0.0.1:5001/api/note HTTP/1.1
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MzE0fQ.YuMqsWCdd9wW2orQsOzH_fm8LwYH893lJypbEm_c6Is
+Authorization: {{token}}
 
 {
     "type" : "personal",
@@ -10,16 +11,16 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1
 
 ###
 GET http://127.0.0.1:5001/api/note HTTP/1.1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+Authorization: {{token}}
 
 ###
 GET http://127.0.0.1:5001/api/note/3 HTTP/1.1
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+Authorization: {{token}}
 
 ###
 PUT http://127.0.0.1:5001/api/note/3 HTTP/1.1
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+Authorization: {{token}}
 
 {
     "note" : "update note"
@@ -28,4 +29,4 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1
 ###
 DELETE  http://127.0.0.1:5001/api/note/3 HTTP/1.1
 content-type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+Authorization: {{token}}

@@ -9,10 +9,14 @@ import { UserRepository } from "../repositories/userRepository";
 import { schemaValidation } from "../validations/schemaValidation";
 import { createUserValidation } from "../validations/userValidation";
 
-export const getUsers: RequestHandler = (request, response) => {
+export const getUser: RequestHandler = async (request:any, response) => {
   try {
-    return response.status(200).send("hello");
+    const userRepository = new UserRepository()
+    const result = await userRepository.getUser({ where : { id : request.user.id } })
+
+    return response.status(200).send(result);
   } catch (err) {
+    console.log(err)
     return response.status(500).send(err);
   }
 };
@@ -20,22 +24,17 @@ export const getUsers: RequestHandler = (request, response) => {
 export const createUser: RequestHandler = async (request, response) => {
   try {
     const userService = new UserService()
+    const userRepository = new UserRepository()
 
     await schemaValidation(createUserValidation, request.body)
-
-    const connection = getConnection();
 
     const payload = {
       ...request?.body,
       password: await userService.generatePassword(request.body.password),
     };
 
-    const user = new User();
-    Object.assign(user, {
-      ...payload,
-    });
+    const result = await userRepository.createUser(payload)
 
-    const result = await connection.manager.save(user);
     return response.status(200).send(result);
   } catch (err) {
     return response.status(500).send(err);

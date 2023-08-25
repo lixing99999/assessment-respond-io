@@ -1,3 +1,5 @@
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgcXdlIiwiaWF0IjoxNjkyOTY0NDUyfQ.L-dvrlGiNkfg3ltIulHQ-3C2tbWBTpIv0uwPqn5yr9M
+
 POST http://127.0.0.1:5001/api/user HTTP/1.1
 content-type: application/json
 
@@ -22,6 +24,8 @@ content-type: application/json
 }
 
 
+
 ###
-GET http://127.0.0.1:5001/api/users
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ1c2VyLTAwMSIsImVtYWlsIjoicXdlIiwiZnVsbG5hbWUiOiJxd2UgdW5kZWZpbmVkIiwiaWF0IjoxNjkyOTE4MjYyfQ.xxH89ezSU4A9PMfm9tUG8tjPby18u3PvV8XkRHAizLw
+
+GET http://127.0.0.1:5001/api/user
+Authorization: {{token}}
