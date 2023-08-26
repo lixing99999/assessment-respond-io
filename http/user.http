@@ -5,10 +5,10 @@ POST http://127.0.0.1:5001/api/user HTTP/1.1
 content-type: application/json
 
 {
-    "username" : "user-001",
+    "username" : "user-002",
     "first_name" : "qwe",
     "last_name" : "qwe",
-    "email" : "qwe",
+    "email" : "qwe2@gmail.com",
     "password" : "123123123",
     "gender" : "Male",
     "date_of_birth" : "2023-08-11"

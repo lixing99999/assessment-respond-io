@@ -5,7 +5,7 @@ import Logger from '../config/logger'
 
 const logger = Logger.getInstance()
 const client = redis.createClient({
-    url : 'redis://localhost:6379'
+    url : process.env.REDIS_SERVER_URL
 })
 
 client.connect()
