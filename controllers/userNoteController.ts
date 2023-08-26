@@ -19,7 +19,9 @@ export const createUserNote:RequestHandler = async (request:any, response) => {
 
         await schemaValidation(createNoteValidation, request.body)
 
-        const note = noteService.createNote({ type : request.body.type, content : request.body.note })
+        const personal = new NoteService().createNote(request.body.type)
+        const note = personal.generateContent(request.body.note)
+    
         const result = await userNoteRepository.createUserNote({ user_id : user.id, note } as UserNote)
 
         logger.log("successfully created user note")

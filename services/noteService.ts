@@ -1,32 +1,35 @@
-import { Note } from "../interfaces/noteInterface"
+import { CreateNote, Note } from "../interfaces/noteInterface"
 
 export class NoteService {
-    createNote(note: Note):string{
-        switch(note.type){
-            case "personal" : {
-                return this.createPersonalNote(note.content)
-            }
+    createNote(type: string):Note{
+        switch(type){
             case "work" : {
-                return this.createPersonalNote(note.content)
+                return new Work()
             }
             case "meeting" : {
-                return this.createPersonalNote(note.content)
+                return new Meeting()
             }
             default : {
-                return  `This is a default note : ${note.content}` 
+                return new Personal()
             }
         }
     }
+}
 
-    createPersonalNote(note:string){
-        return `This is a personal note : ${note}`
+class Personal implements Note{
+    generateContent(content:string): string {
+        return `This is a personal note : ${content}`
     }
+}
 
-    createWorkNote(note:string){
-        return `This is a work note : ${note}`
+class Work implements Note{
+    generateContent(content:string): string {
+        return `This is a work note : ${content}`
     }
+}
 
-    createMeetingNote(note:string){
-        return `This is a meeting note : ${note}`
+class Meeting implements Note{
+    generateContent(content:string): string {
+        return `This is a meeting note : ${content}`
     }
 }
