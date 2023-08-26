@@ -10,6 +10,6 @@ export class UserService {
     }
 
     async generateToken(payload:jwtUserInfo){
-        return await jwt.sign(payload, process.env.SECRET_KEY as string)
+        return await jwt.sign(payload, process.env.SECRET_KEY as string, { expiresIn : '10h' })
     }
 }
